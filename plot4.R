@@ -11,6 +11,8 @@ data$datetime <- strptime(paste(data$Date, data$Time), "%Y-%m-%d %H:%M:%S")
 data$datetime <- as.POSIXct(data$datetime)
 
 #plotting the different plots
+
+png("plot4.png", width = 480, height = 480)
 par(mfrow=c(2,2))
 
 plot(data$Global_active_power ~ data$datetime, type="l",ylab="Global Active Power (kilowatts)",xlab="")
@@ -25,5 +27,5 @@ legend("topright", col=c("black","red","blue"), legend=c("Sub_metering_1","Sub_m
 with(data, plot(Global_reactive_power ~ datetime, type="l"))
 
 #saving the plot as png
-dev.copy(png, file = "plot4.png", height = 480, width = 480)
+#dev.copy(png, file = "plot4.png", height = 480, width = 480)
 dev.off()
